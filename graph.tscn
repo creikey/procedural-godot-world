@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://simple_graph.gd" type="Script" id=1]
 [ext_resource path="res://character.tscn" type="PackedScene" id=2]
@@ -46,23 +46,6 @@ image = Image( 300, 300, 0, RGBA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 size = Vector2( 300, 300 )
 storage = 0
 lossy_quality = 0.7
-
-[sub_resource type="GDScript" id=5]
-
-script/source = "extends Label
-
-# class member variables go here, for example:
-# var a = 2
-# var b = \"textvar\"
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	set_text( \"Didn't work...\" )
-	var toread = File.new()
-	toread.open( \"res://test.txt\", toread.READ )
-	set_text( toread.get_as_text() )
-"
 
 [node name="main" type="Node2D"]
 
@@ -124,23 +107,5 @@ trigger = false
 _update_shape_index = 0
 
 [node name="sample_character" parent="." instance=ExtResource( 2 )]
-
-[node name="Label 2" type="Label" parent="."]
-
-rect/scale = Vector2( 5, 5 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 67.0
-margin/top = 115.0
-margin/right = 186.0
-margin/bottom = 146.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Didn't work..."
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-script/script = SubResource( 5 )
 
 
