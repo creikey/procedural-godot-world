@@ -7,7 +7,6 @@ extends KinematicBody2D
 var pos = Vector2( 400, 400 )
 var rotd = 0.0
 onready var world = get_node( "/root/main/world" )
-onready var graph = get_node( "/root/main/world" )
 
 func _ready():
 	if( get_tree().is_editor_hint() ):
@@ -30,9 +29,9 @@ func _fixed_process(delta):
 	move( Vector2( delta*20, 0 ) )
 	if( is_colliding() ):
 		print( "Colliding" )
-		graph.colliding = true
+		world.colliding = true
 	else:
-		graph.colliding = false
+		world.colliding = false
 
 func on_update():
 	move_to( Vector2( pos.x - world.global_pos.x, pos.y + world.global_pos.y ) )
